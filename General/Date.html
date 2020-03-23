@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Date日期</h1>
+
+    <script type="module">
+        import { $title, $ex, $g, $log } from '../modules/helpers.js';
+
+        var date1 = new Date(2020, 3, 23);
+        var dt = new Date(2020, 3, 23, 10, 59, 10);
+
+        console.log(date1);
+        console.log(dt);
+
+        $ex('getYear(), getMonth(), getDate()');
+        console.log(`${dt.getYear()}/${dt.getMonth()}/${dt.getDate()}`);
+        console.log(`${date1.getFullYear()}/${date1.getMonth()}/${date1.getDate()}`);
+        
+        
+    </script>
+</body>
+
+</html>

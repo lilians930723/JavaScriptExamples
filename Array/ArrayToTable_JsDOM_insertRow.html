@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+
+        <div id="container">
+
+        </div>
+
+
+
+        <script>
+            var Titles = ['國家','國家','死亡','治癒'];
+
+            var Taiwan = ['台灣', 41, 1 ,12];
+            var China = ['中國', 80134, 2914, 44595];
+            var America = ['美國', 9665, 146, 694];
+            var Global = [Taiwan, China, America];
+
+            //get body element
+            var body = document.getElementsByTagName('body')[0];
+            var table = document.createElement('table');
+            table.setAttribute("border", "2");
+            var thead = document.createElement('thead');
+            var tbody = document.createElement('tbody');
+
+            window.addEventListener('load', function(){
+                createTableRow(Titles, Global);
+                body.appendChild(table);
+            });
+
+            function createTableRow(titles, rowsArray)
+            {
+                //建立thead欄位資料
+                AddRowCell(titles);
+
+                //建立tbody資料列
+                if(!Array.isArray(rowsArray[0])){  
+                    AddRowCell(rowsArray);
+                }
+                else{
+                    rowsArray.forEach(function(item){
+                        AddRowCell(item);
+                    });
+                }
+            }
+
+            function AddRowCell(data){           
+                var row = table.insertRow();
+                //create table cells
+                data.forEach(function(item, index, array){
+                    var cell = row.insertCell();
+                    cell.innerHTML=item;
+                });
+
+                table.appendChild(row);
+            }
+        </script>
+    </body>
+</html>

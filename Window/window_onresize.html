@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onresize</title>
+</head>
+
+<body>
+    <h1>windows onresize事件</h1>
+    <!-- resize時，即時更新下面數據 -->
+
+    <ul id="msg">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
+    <script type="module">
+        import { $title, $ex, $g, $log } from '../modules/helpers.js';
+
+        const lis = document.querySelector('ul').children;
+
+        function displayWindowSize() {
+            lis[0].innerHTML = `window.innerWidth : ${window.innerWidth}`;
+            lis[1].innerHTML = `window.innerHeight : ${window.innerHeight}`;
+            lis[2].textContent = `window.outerWidth : ${window.outerWidth}`;
+            lis[3].textContent = `window.outerHeight : ${window.outerHeight}`;
+        }
+
+        window.onload = displayWindowSize;
+        window.addEventListener('resize', displayWindowSize)
+    </script>
+</body>
+
+</html>

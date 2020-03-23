@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>自訂Selector function</h1>
+
+    <p>iPhone</p>
+    <p>iPad</p>
+    <p>Mac</p>
+
+    <ul>
+        <li>JavaScript</li>
+        <li>ASP.NET MVC</li>
+        <li>.NET Core</li>
+    </ul>
+
+    <button>Click Me!</button>
+
+    <script type="module">
+        import { $g } from '../modules/helpers.js';
+        
+        //Ex
+        var h1 = $g('h1');
+        console.log(h1);
+        console.log(typeof h1);
+
+        //Ex
+        var btn = $g('button');
+        console.log(btn);
+        console.log(btn instanceof HTMLButtonElement);
+        console.log(btn.innerHTML);
+
+        //Ex
+        console.log($g('p')); //NodeList
+        console.log(typeof p);
+
+        //Ex
+        var body = $g('body');
+        console.log(body);
+        console.log(typeof body);
+        console.log(body.children); //HTMLCollection
+
+    </script>
+</body>
+
+</html>

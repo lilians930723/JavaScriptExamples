@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+
+    <script>
+        
+        //fetch + Promise 
+        function fetchPromise(url) {
+            return fetch(url)
+                .then(response => response.text())
+                .then(text => {
+                    document.getElementsByTagName('Body')[0].innerHTML = text;
+                })
+                .catch(ex => {
+                    document.getElementsByTagName('Body')[0].innerHTML = ex;
+                });
+        }
+
+        var body = document.getElementsByTagName('Body')[0];
+        
+        //fetch + async function
+        async function fetchAsync(url){
+            try{ 
+                const response = await fetch(url);
+                body.innerHTML = await response.text();
+            }
+            catch(ex){
+                body.innerHTML = ex;
+            }
+        }
+
+
+        window.onload = fetchAsync('https://www.msn.com/zh-tw');
+
+    </script>
+</body>
+
+</html>

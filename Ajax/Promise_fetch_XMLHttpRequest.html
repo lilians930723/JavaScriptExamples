@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <script>
+            // fetch回傳Promise物件
+            fetch('https://jsonplaceholder.typicode.com/todos/1')
+            .then(response => response.json())
+            .then(json => {console.log('fetch : return data type is ' + typeof json);console.log(json)})
+            
+
+            /**XMLHttpRequest with Promise */
+            function AjaxCall(url){ 
+                return new Promise((resolve, reject)=>{
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("GET", url);
+                    xhr.onload=()=>resolve(xhr.responseText);
+                    xhr.onerror=()=>reject(xhr.status);
+                    xhr.send();
+                });
+            }
+
+            var ajaxPromise = AjaxCall('https://jsonplaceholder.typicode.com/todos/1');
+
+            ajaxPromise.then(function(value){
+                //success
+                console.log('AjaxCall : return data type is ' + typeof value);
+                console.log(value);
+            },function(ex){
+                //fail
+                console.log('失敗，原因 : ' + ex);
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="info">
+        </div>
+
+        <div id="info2">
+        </div>
+    </body>
+    <script>
+        const person={
+            name: 'Kevin',
+            phone : '0925-15428',
+            email : 'kevin@gmail.com'
+        };
+
+        const markup =`
+        <div class="card">
+            <h2>${person.name}</h2>
+            <p>${person.phone}</p>
+            <p>${person.email}</p>
+        </div> 
+        `;
+
+        document.getElementById("info").innerHTML=markup;
+        document.getElementById("info2").textContent=markup;
+        //document.body.innerHTML=markup;
+    </script>
+</html>

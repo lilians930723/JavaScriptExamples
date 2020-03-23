@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <title>querySelector()方法</title>
+
+</head>
+
+<body>
+  <input type="text" id="inputColor" name="inputColor" value="bg-primary">
+  <button onclick="changeBackground()">變更背景</button>
+  <button onclick="changeBG('bg-success');">變更背景,帶參數</button>
+  <button onclick="changeBgByInput()">變更背景byInput</button>
+  <div class="bg-info">
+    <h1>JavaScript課程</h1>
+    <p id="var">1.變數</p>
+    <p id="string">2.字串</p>
+    <p id="statement">3.陳述式</p>
+  </div>
+  <div id="msg"></div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+  <script>
+    var input, bgColor, divElement, msg;
+
+
+    window.onload=function(){
+      input = document.getElementById("inputColor");
+      bgColor = document.getElementById("inputColor").value;
+      divElement = document.querySelector(".bg-info");
+      msg = document.getElementById("msg");
+    }
+
+    //1.直接在Function中設定背景色
+    function changeBackground() {
+      //debugger;
+      console.log(divElement);
+      divElement.setAttribute("class", "bg-warning");
+
+      msg.textContent="背景色：" + divElement.getAttribute("class");
+    }
+
+    //2.傳背景色參數給Function
+    function changeBG(value) {
+      divElement.setAttribute("class", value);
+
+      msg.textContent="背景色：" + divElement.getAttribute("class");
+    }
+
+    //3.從Input讀取背景色字串，然後傳參數到Function
+    function changeBgByInput() {
+      if( bgColor==null)
+      {
+        alert('必須輸入顏色');
+      }else{
+        bgColor = document.getElementById("inputColor").value;
+        divElement.setAttribute("class", bgColor);
+
+        msg.textContent="背景色：" + divElement.getAttribute("class");
+      }
+    }
+
+  </script>
+
+</body>
+</html>

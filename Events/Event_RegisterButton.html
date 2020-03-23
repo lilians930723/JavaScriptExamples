@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registering event listeners</title>
+</head>
+<body>
+    <h1>註冊事件的三種方式</h1>
+
+    <button id="button1" onclick="Event1(event,this)">在HTML attribute指定事件處理器</button> 
+    <button id="button2">用JS在HTML元素屬性設定事件</button>
+    <button id="button3">用addEventListener()方法註冊</button>
+    
+    <script>
+        //Ex1 - 在HTML attribute指定事件處理器
+        function Event1(event , element){
+            alert(`${event.constructor.name}事件類型的 ${event.type}事件`);  //事件類型
+            alert(element.innerHTML);
+            alert(event.target.innerHTML);
+        }
+
+        //Ex2 - 用JS在HTML元素屬性設定事件
+        var btn2 = document.getElementById("button2");
+        btn2.onclick = function(event){
+            alert(`${event.constructor.name}事件類型的 ${event.type}事件`);  //事件類型
+            alert(this.innerHTML);
+        }
+
+        //EventTarget.addEventListener
+        var btn3 = document.getElementById("button3");
+/*         btn3.addEventListener('click', function(event){
+            alert(`${event.constructor.name}事件類型的 ${event.type}事件`);  //事件類型
+        }); */
+
+/*         btn3.addEventListener('click', (event)=>{
+            alert(`${event.constructor.name}事件類型的 ${event.type}事件`);  //事件類型
+        }) */
+
+/*         btn3.addEventListener('click', function displayEvent(event){
+            alert(`${event.constructor.name}事件類型的 ${event.type}事件`);  //事件類型
+        }) */
+
+/*         btn3.addEventListener('click', displayEvent);
+
+        function displayEvent(event){
+            alert(`${event.constructor.name}事件類型的 ${event.type}事件`);  //事件類型
+        } */
+
+
+    </script>
+</body>
+</html>

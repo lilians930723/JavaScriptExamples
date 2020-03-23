@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+
+        <div id="container">
+
+        </div>
+
+        <script>
+            //1.Define Arrays
+            var Titles = ['國家','國家','死亡','治癒'];
+            var Taiwan = ['台灣', 41, 1 ,12];
+            var China = ['中國', 80134, 2914, 44595];
+            var America = ['美國', 9665, 146, 694];
+            var Global = [Taiwan, China, America];
+            
+            window.onload=function(){
+                //2.create table element
+                var table = document.createElement('table');
+                table.setAttribute("border", "2");
+                var thead = document.createElement('thead');
+                var tbody = document.createElement('tbody');
+
+                //3.建立thead標題資料
+                var theadRow = document.createElement('tr');
+                //create table cells
+                Titles.forEach(function(item, index, array){
+
+                    var td = document.createElement('td');
+                    var tdText = document.createTextNode(item);
+                    td.appendChild(tdText);
+                    theadRow.appendChild(td)
+                });
+
+                thead.appendChild(theadRow);
+                table.appendChild(thead);
+
+                //4.建立tbody資料列
+                var tbodyRow = document.createElement('tr');
+                //create table cells
+                America.forEach(function(item, index, array){
+
+                    var td = document.createElement('td');
+                    var tdText = document.createTextNode(item);
+                    td.appendChild(tdText);
+                    tbodyRow.appendChild(td)
+                });
+
+                //5.一層一層加入元素
+                tbody.appendChild(tbodyRow);
+                table.appendChild(tbody);
+
+                //get body element
+                var body = document.getElementsByTagName('body')[0];
+                body.appendChild(table);
+            }
+            
+        </script>
+        
+
+        <script>
+            window.addEventListener('load', function(){
+                var table = document.createElement('table');
+                table.setAttribute("border", "2");
+
+                var theadRow = table.insertRow();
+                
+                Titles.forEach(function(item, index, array){
+                    var cell = theadRow.insertCell();
+                    cell.innerHTML=item;
+                });
+
+                var tbodyRow = table.insertRow();
+                Taiwan.forEach(function(item, index, array){
+                    var cell = tbodyRow.insertCell();
+                    cell.innerHTML=item;
+                });
+
+
+                table.appendChild(theadRow);
+                table.appendChild(tbodyRow);
+                document.getElementById('container').appendChild(table);
+            });
+        </script>
+    </body>
+</html>

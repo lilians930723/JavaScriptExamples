@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>自訂Selector function</h1>
+
+    <p>iPhone</p>
+    <p>iPad</p>
+    <p>Mac</p>
+
+    <ul>
+        <li>JavaScript</li>
+        <li>ASP.NET MVC</li>
+        <li>.NET Core</li>
+    </ul>
+
+    <button>Click Me!</button>
+
+    <script>
+        function $g(value) {
+            //判斷是否為id selector
+            if (value.includes('#')) {
+                //回傳Element
+                return document.querySelector(value);
+            }
+
+            //回傳NodeList集合
+            var nodelist = document.querySelectorAll(value);
+
+            //判斷NodeList集合元素長度，若只有一個，則直接回傳該物件；
+            //若有多個就回傳原本的NodeList集合
+            return nodelist.length == 1 ? nodelist[0] : nodelist;
+        }
+
+        //Ex
+        var h1 = $g('h1');
+        console.log(h1);
+        console.log(typeof h1);
+
+        //Ex
+        var btn = $g('button');
+        console.log(btn);
+        console.log(btn.innerHTML);
+        //MDN - HTMLButtonElement - https://developer.mozilla.org/en-US/docs/Web/API/HTMLButtonElement
+        console.log(btn instanceof HTMLButtonElement);
+
+
+        //Ex
+        console.log($g('p')); //NodeList
+        console.log(typeof p);
+
+        //Ex
+        var body = $g('body');
+        console.log(body);
+        console.log(typeof body);
+        console.log(body.children); //HTMLCollection
+
+    </script>
+</body>
+
+</html>

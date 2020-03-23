@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="covid">
+
+        </div>
+        <div id="covid2">
+
+        </div>
+        <script>
+            /*
+            window.onload = function(){
+                var Taiwan = ['台灣', 41, 1 ,12];
+                var China = ['中國', 80134, 2914, 44595];
+                var America = ['美國', 9665, 146, 694];
+                
+
+                var Global = [Taiwan, China, America];
+
+                var Thead = ['國家','國家','死亡','治癒'];
+                var Tbody = Taiwan;
+
+                
+                document.getElementById("covid").innerHTML=getTableHtml(Thead, Tbody);
+                
+                document.getElementById("covid2").innerHTML=getTableHtml(Thead, Global);
+                
+                //document.body.innerHTML=getTableHtml(Thead, Global);
+            };
+            */
+
+            
+            window.addEventListener('load', function(){
+                //宣告陣列
+                var Taiwan = ['台灣', 41, 1 ,12];
+                var China = ['中國', 80134, 2914, 44595];
+                var America = ['美國', 9665, 146, 694];
+                
+
+                var Global = [Taiwan, China, America];
+
+                var Thead = ['國家','國家','死亡','治癒'];
+                var Tbody = Taiwan;
+
+                document.getElementById("covid").innerHTML=getTableHtml(Thead, Tbody);
+                
+                document.getElementById("covid2").innerHTML=getTableHtml(Thead, Global);
+
+                
+                //document.getElementById("covid").innerHTML=getTableHtml(Thead, Tbody);
+                    
+            });
+            
+            /**
+             * Represents a book.
+             * @constructor
+             * @param {array} title - The title of the book.
+             * @param {array} rows - The author of the book.
+             */
+            function getTableHtml(title, rows){
+
+                var html="<table>";
+                
+                html+="<thead><tr>";
+                let columns = title.length;
+
+                for(var i=0; i<columns;i++)
+                {
+                    html+="<td>"+ title[i] +"</td>";
+                }
+                html+="</tr></thead>";
+
+                html+="<tbody>";
+                if(!Array.isArray(rows[0])){
+                    html +=AddTableRow(rows);
+                }
+                else{
+                    rows.forEach(function(item, index, array){
+                        html+=AddTableRow(item);
+                    });
+                }
+                html+="</tbody></table>";
+
+                return html;
+            }
+
+            function AddTableRow(rows){
+                var rowHtml ="<tr>";
+                
+                /*
+                let columns = rows.length;
+                for(var i=0;i<columns;i++)
+                {
+                    rowHtml += "<td>"+ rows[i] + "</td>";
+                }
+                */
+                
+               rows.forEach(function(item, index, array){
+                    rowHtml += "<td>"+ item + "</td>";
+               });
+
+                rowHtml+="<tr>";
+
+                return rowHtml;
+            }
+        </script>
+    </body>
+</html>

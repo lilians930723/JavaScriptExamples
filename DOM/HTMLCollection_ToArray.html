@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>自訂Selector function</h1>
+
+    <p>iPhone</p>
+    <p>iPad</p>
+    <p>Mac</p>
+
+    <ul>
+        <li>JavaScript</li>
+        <li>ASP.NET MVC</li>
+        <li>.NET Core</li>
+    </ul>
+
+    <button>Click Me!</button>
+
+    <script type="module">
+        import { $title, $ex, $g, $log } from '../modules/helpers.js';
+
+        var html = document.firstElementChild;
+        var htmlChildren = html.children; //HTMLCollection - head & body
+
+        var head = htmlChildren.item(0);
+        var body = htmlChildren.item(1);
+
+        $title('將HTMLCollection轉為Array陣列後，才能使用forEach()方法');
+        //ES6
+        var array1 = [...body.children];
+        var array2 = Array.from(body.children);
+        //Traditional
+        var array3 = Array.prototype.slice.call(body.children);
+        var array4 = [].slice.call(body.children);
+
+        $log(array1);
+        $log(array2);
+        $log(array3);
+        $log(array4);
+
+        $ex('HTMLCollection.forEach()');
+        array1.forEach((item, index) => {
+            console.log(item);
+            if (item.localName == "script") { return };
+            // console.log(index + "," + item.innerHTML + "" + item);
+        });
+    </script>
+</body>
+
+</html>

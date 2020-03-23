@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>My Document</title>
+</head>
+
+<body>
+  <h1>Header</h1>
+  <p>Paragraph</p>
+  <div id="yourname">你的名字</div>
+
+  <script>
+    var h1 = document.getElementsByTagName("h1");
+    console.log(h1);
+    h1[0].innerHTML = "JavaScript課程";
+
+    var p = document.getElementsByTagName("p");
+    console.log(p);
+    p[0].innerHTML = "DOM";
+
+    var div = document.getElementsByTagName("div");
+    console.log(div);
+
+    var name = document.getElementById("yourname");
+    console.log(typeof name[0]);
+
+    //name.innerHTML="奚江華";
+    document.getElementById("yourname").textContent = "奚江華";
+
+  </script>
+</body>
+
+</html>

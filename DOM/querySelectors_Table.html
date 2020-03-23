@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>CSS Selector</title>
+
+    <style>
+        /* table>tbody>tr>td:nth-child(1){
+            background-color: red;
+        }
+
+        table>tbody>tr>td:nth-child(2){
+            background-color: blue;
+        }
+
+        table>tbody>tr>td:nth-child(3){
+            background-color: green;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="title"></div>
+    <div id="subtitle" class="bg-info"></div>
+    <table>
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Name</td>
+                <td>Email</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>1.</td>
+                <td>Kevin</td>
+                <td>kevin@gmail.com</td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td>David</td>
+                <td>david@gmail.com</td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td>Mary</td>
+                <td>mary@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        //querySelector("#id選擇器")選擇器，回傳一個Emlement
+        var title = document.querySelector("#title");
+        title.innerHTML="<h1>通訊錄</h1>";
+
+        //querySelector(".class類別選擇器")選擇器，回傳一個Emlement
+        var subtitle = document.querySelector(".bg-info");
+        subtitle.innerHTML="<h3>第七小組</h3>";
+        subtitle.setAttribute("style","background-color:red")
+
+        //設定Thead背景色
+        //1.querySelector()選擇器，回傳一個Emlement
+        var thead = document.querySelector("table>thead>tr");
+
+        thead.style.color = "green";
+        thead.style.backgroundColor = 'yellow';
+
+        //2.querySelectorAll()選擇器,回傳NodeList-選擇Tbody的所有<tr>列
+        var trRows = document.querySelectorAll("table>tbody>tr");   //NodeList，三個<tr>
+
+        trRows.forEach(function(item, index, list){
+            let tdCols=item.cells;  //HTMlCollection
+            for(var i=0; i<tdCols.length;i++){
+                console.log(`${tdCols[0].innerHTML}, ${tdCols[1].innerHTML}, ${tdCols[2].innerHTML}`);
+            }
+        });
+
+        //3.querySelectorAll()選擇器,回傳NodeList-選擇Tbody的所有tr列之第二欄<td>
+        var names = document.querySelectorAll("table>tbody>tr>td:nth-child(2)");    //NodeList
+        names.forEach(function(item, index, list){
+            console.log(item.innerHTML);  //item is 三個<td>
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>Canvas tutorial</title>
+    <style type="text/css">
+        #rectangle {
+            border: 1px;
+            background-color: yellowgreen;
+            border: lightblue;
+        }
+    </style>
+</head>
+
+<body onload="drawRect();drawCircle();">
+    <canvas id="rectangle" width="150" height="150"></canvas>
+
+    <canvas id="circle" width="578" height="200"></canvas>
+
+    <script type="text/javascript">
+        function drawRect() {
+            var canvas = document.getElementById('rectangle');
+            if (canvas.getContext) {
+                var ctx = canvas.getContext('2d');
+            }
+        }
+
+        function drawCircle(){
+            var canvas = document.getElementById('circle');
+            var context = canvas.getContext('2d');
+            var centerX = canvas.width / 2;
+            var centerY = canvas.height / 2;
+            var radius = 70;
+
+            context.beginPath();
+            context.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+            context.fillStyle = 'green';
+            context.fill();
+            context.lineWidth = 5;
+            context.strokeStyle = '#003300';
+            context.stroke();
+        }
+
+    </script>
+
+</body>
+
+</html>

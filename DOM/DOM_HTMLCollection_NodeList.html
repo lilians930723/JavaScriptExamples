@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>iPhone</p>
+    <p>iPad</p>
+    <p>Mac</p>
+
+    <ul>
+        <li>JavaScript</li>
+        <li>ASP.NET MVC</li>
+        <li>.NET Core</li>
+    </ul>
+
+    <button>Get All Elements</button>
+
+    <script>
+        function $g(value) {
+            //判斷是否為id selector
+            if (value.includes('#')) {
+                //回傳Element
+                return document.querySelector(value);
+            }
+
+            //回傳NodeList集合
+            var nodelist = document.querySelectorAll(value);
+
+            return nodelist.length == 1 ? nodelist[0] : nodelist;
+        }
+
+        var btn = $g('button');
+        console.log(btn);
+
+        console.log($g('p'));
+/*         btn.addEventListener('click',function(event){
+                    var ps = $('p');
+        
+                }); */
+
+    </script>
+</body>
+
+</html>

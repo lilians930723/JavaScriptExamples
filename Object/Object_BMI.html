@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+
+        <!-- 這裡再補HTML element,做成一個BMI計算器 -->
+
+        <script>
+            var height=178, weight=75;
+        
+            //3.function constructor 
+        function Person(name, age, height, weight) {
+            this.name = name;
+            this.age = age;
+            this.height = height;
+            this.weight = weight;
+            this.bmi = function () {
+                return weight / ((height / 100) ** 2);
+            }
+        }
+
+        var person = new Person('Mary', 26, 168, 52)
+        var i=0;
+        </script>
+    </body>
+</html>

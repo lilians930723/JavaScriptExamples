@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+
+        <div id="container">
+
+        </div>
+
+
+
+        <script>
+            var Titles = ['國家','國家','死亡','治癒'];
+
+            var Taiwan = ['台灣', 41, 1 ,12];
+            var China = ['中國', 80134, 2914, 44595];
+            var America = ['美國', 9665, 146, 694];
+            var Global = [Taiwan, China, America];
+
+            var table = document.createElement('table');
+            table.setAttribute("border", "2");
+            var thead = document.createElement('thead');
+            var tbody = document.createElement('tbody');
+
+            window.onload=function(){
+                //createTable(Titles, Taiwan);
+                createTable(Titles, Global);
+                
+                //get body element
+                var body = document.getElementsByTagName('body')[0];
+                body.appendChild(table);
+            }
+
+            /**
+             * create a table.
+             * @constructor
+             * @param {array} title - The title of the table.
+             * @param {array} rows - The rows of the table.
+             */
+            function createTable(titles, rowsArray)
+            {
+                //建立thead欄位資料
+                AddRow(thead, titles);
+
+                //建立tbody資料列
+                if(!Array.isArray(rowsArray[0])){  
+                    AddRow(tbody, rowsArray);
+                }
+                else{
+                    rowsArray.forEach(function(item){
+                        AddRow(tbody, item);
+                    });
+                }
+            }
+
+            function AddRow(source , rowData){
+                                //建立tbody資料列
+                var _row = document.createElement('tr');
+                //create table cells
+                rowData.forEach(function(item, index, array){
+
+                    var td = document.createElement('td');
+                    var tdText = document.createTextNode(item);
+                    td.appendChild(tdText);
+                    _row.appendChild(td)
+                });
+
+                source.appendChild(_row);
+                table.appendChild(source);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.js"
+                integrity="sha256-BTlTdQO9/fascB1drekrDVkaKd9PkwBymMlHOiG+qLI="
+                crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <table id="tblNames" border="1" >
+            <tr>
+                <th>Name</b></th>
+                <th>Name2</b></th>
+                <th>Delete</b></th>
+            </tr>
+            <tr>
+                <td>Bingo</td>
+                <td>Tingo</td>
+                <td><img src="Delete.gif" height="15" class="delete" /></td>
+            </tr>
+        </table>
+        <input id="insert_data" type="button" style="height: 35px; width: 225px" value="Retrieve Default User" />
+
+        <script>
+            var people = [];
+            people.push(["Coco", "Mandy"]); 
+            people.push(["Suzze", "Candy"]); 
+            people.push(["Janny", "Jacky"]);
+
+            $(document).ready(function() {
+
+                $("#insert_data").click(function() {                    
+                    people.forEach(function(item){
+                        var rowHtml = `<tr><td>${item[0]}</td><td>${item[1]}</td><td>Nothing</td></tr>`;
+                        $("#tblNames tr:last").after(rowHtml.toString());
+                    }); 
+                }); 
+            });
+        </script>
+    </body>
+</html>

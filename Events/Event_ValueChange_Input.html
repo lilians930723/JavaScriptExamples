@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="message"></h1>
+    <input placeholder="請輸入..." id="name" name="name" />
+    
+    <script>
+        const input = document.getElementById("name");
+        const msg = document.getElementById("message");
+
+        input.addEventListener('input', (event)=>{
+            msg.textContent = event.target.value;
+        });
+    </script>
+</body>
+
+</html>

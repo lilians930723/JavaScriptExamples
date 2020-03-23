@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="load()">
+    <button>Button1</button>
+    <button>Button2</button>
+    <button>Button3</button>
+    <button>Button4</button>
+    <button>Button5</button>
+
+    <input type="button" value="移除所有Button click事件" onclick="removeEvent()" />
+
+    <div id="msg"></div>
+    <script>
+        var msg = document.getElementById("msg");
+        var buttons = document.querySelectorAll("button");
+        var txt = "";
+        function load() {
+
+            buttons.forEach((item, index) => {
+                txt += (index == 0) ? item.innerHTML : ", " + item.innerHTML;
+
+                //註冊事件
+                item.addEventListener('click', displayEvent);
+            });
+
+            msg.innerHTML = txt;
+        }
+
+        function displayEvent(event) {
+            alert(`事件：${event.type}, 按鈕：${this.innerHTML}`);
+            alert(`事件：${event.type}, 按鈕：${event.target.innerHTML}`);
+        }
+
+        //移除事件
+        function removeEvent() {
+            buttons.forEach((item) => {
+                item.removeEventListener("click", displayEvent);
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="msg"></h1>
+    <div>
+        <label for="username"></label>
+        <input type="text" placeholder="請輸入你的名字" id="username" name="username" />
+    </div>
+    <button>顯示輸入名字</button>
+
+
+    <script>
+        var msg = document.getElementById("msg");
+        var input = document.getElementById("username");
+        var button = document.querySelector("button");
+        
+        //註冊按鈕click事件
+        button.addEventListener('click', alertUsername);
+
+        function alertUsername(){
+            alert("你的名字是：" + input.value);
+            //alert(`事件：${event.type}, value：${event.target.value}`);
+        }
+
+        //註冊input value輸入值改變事件
+        input.addEventListener('input', syncTitle)
+
+        function syncTitle(event) {
+            msg.innerHTML = input.value;       
+        }
+
+        button.removeEventListener('click', alertUsername);
+
+    </script>
+</body>
+
+</html>

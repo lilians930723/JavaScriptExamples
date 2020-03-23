@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>自訂Selector function</h1>
+
+    <p>iPhone</p>
+    <p>iPad</p>
+    <p>Mac</p>
+
+    <ul>
+        <li>JavaScript</li>
+        <li>ASP.NET MVC</li>
+        <li>.NET Core</li>
+    </ul>
+
+    <button>Click Me!</button>
+
+    <script type="module">
+        import { $title, $ex, $g, $log } from '../modules/helpers.js';
+
+        //Ex
+        var ps = $g('p')  //NodeList
+        var ul = $g('ul');
+        var ulChildren = $g('ul').children; //NodeList
+        var body = $g('body');
+        var bodyChildren = $g('body').children; //HTMLCollection
+
+        //Ex
+        $title('display elements');
+        $log(ps);
+        $log(body);
+        $log(bodyChildren);
+
+        //Ex
+        $title('用for迴圈存取NodeList和HTMLCollection元素');
+        $ex('<p>');
+        for (let i = 0; i < ps.length; i++) {
+            console.log(ps[i]);
+        }
+
+        $ex('ul');
+        for (let i = 0; i < ulChildren.length; i++) {
+            console.log(ulChildren[i].innerHTML);
+        }
+
+        $ex('<body>');
+        for (let i = 0; i < bodyChildren.length; i++) {
+            console.log(bodyChildren[i]);
+        }
+
+        //Ex
+        $title('用forEach()存取NodeList和HTMLCollection元素');
+
+        $ex('NodeList.forEach()');
+        ps.forEach((item, index) => {
+            $log(`${index}, ${item.innerHTML}, ${item}`);
+        });
+
+        //Ex
+        $title('將HTMLCollection轉為Array陣列後，才能使用forEach()方法');
+        //ES6
+        var array1 = [...bodyChildren];
+        var array2 = Array.from(bodyChildren);
+        //Traditional
+        var array3 = Array.prototype.slice.call(bodyChildren);
+        var array4 = [].slice.call(bodyChildren);
+
+        $log(array1);
+        $log(array2);
+        $log(array3);
+        $log(array4);
+
+        $ex('HTMLCollection.forEach()');
+/*         array1.forEach((item, index) => {
+            $log(`${index}, ${item.innerHTML}, ${item}`);
+        }); */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        p,label {
+            font: 1rem 'Fira Sans', sans-serif;
+        }
+
+        input {
+            margin: .4rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="favorite">請選擇你喜歡的背景顏色</label>
+        <input type="color" id="favorite" name="favorite" value="#FFFFFF">
+    </div>
+
+    <script>
+        const body=document.getElementsByTagName("body")[0];
+        const input = document.getElementById("favorite");
+
+        //註冊input value值改變的事件
+        input.addEventListener('input', (event)=>{
+            body.style.backgroundColor = event.target.value;
+        });
+    </script>
+</body>
+</html>
