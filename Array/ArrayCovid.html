@@ -1,48 +1,69 @@
 <!DOCTYPE html>
 <html>
-    <head>
 
-    </head>
-    <body>
-        <table>
-            <thead>
-                <tr>
-                    <td>國家</td>
-                    <td>確診</td>
-                    <td>死亡</td>
-                    <td>治癒</td>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>`${country1}`</td>
-                    <td>`${Taiwan[0]}`</td>
-                    <td>`${Taiwan[1]}`</td>
-                    <td>`${Taiwan[2]}`</td>
-                </tr>
-                <tr>
-                    <td>中國</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>美國</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <script>
-            var name ='Kevin';
+<head>
 
-            var Taiwan = [41, 1 ,12];
-            var China = [80134, 2914, 44595];
-            var America = [9665, 146, 694];
-            
-            var country1='台灣';
-            var Global = [Taiwan, China, America];
-        </script>
-    </body>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>國家</td>
+                <td>確診</td>
+                <td>死亡</td>
+                <td>治癒</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>台灣</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>中國</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>美國</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        //國家,確診,死亡,治癒
+        var Taiwan = [41, 1, 12];
+        var China = [80134, 2914, 44595];
+        var America = [9665, 146, 694];
+
+        var country1 = '台灣';
+        var Global = [Taiwan, China, America];
+
+        //請參考HTMLCollection_Iteration_Nodelist.html
+
+        var row1 = document.querySelectorAll('tbody>tr:nth-child(1) td');
+        var row2 = document.querySelectorAll('tbody>tr:nth-child(2) td');
+        var row3 = document.querySelectorAll('tbody>tr:nth-child(3) td');
+
+        row1[1].textContent = Taiwan[0];
+        row1[2].textContent = Taiwan[1];
+        row1[3].textContent = Taiwan[2];
+
+        row2[1].textContent = China[0];
+        row2[2].textContent = China[1];
+        row2[3].textContent = China[2];
+
+        row3[1].textContent = America[0];
+        row3[2].textContent = America[1];
+        row3[3].textContent = America[2];
+
+    </script>
+</body>
+
 </html>

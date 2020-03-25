@@ -209,3 +209,10 @@ console.log(array3);
 title('用apply()方法合併陣列');
 array1.push.apply(array1, array2);
 console.log(array1);
+
+//=========== 陣列清除 ===============
+//Ex24 - 
+var friends = ['David', 'Mary', 'John'];
+friends=[]; //重新指派一個空陣列
+friends.length=0;   //將length設為0
+friends.splice(0, friends.length);  //移除N個陣列元素

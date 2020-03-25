@@ -13,13 +13,3 @@ function getRandom(min, max) {
 
 console.log(getRandom(1, 100));
 
-//Ex4 - round()
-console.log(Math.round(3.1415962, 4));
-
-//Ex5 - abs()
-console.log(Math.abs(-3.1415962));
-
-//Ex6 - max() & min()最大最小值
-var array1 = [3, 7, 9, 16, 9, -1];
-console.log(Math.max(...array1));
-console.log(Math.min(...array1));

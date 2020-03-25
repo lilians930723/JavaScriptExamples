@@ -44,6 +44,7 @@ console.log(name == nickname);
 console.log(name === nickname);
 console.log(typeof name);
 console.log(typeof nickname);
+console.log(nickname instanceof String);
 
 let s1 = "3 + 6";
 let s2 = new String("3 + 6");
