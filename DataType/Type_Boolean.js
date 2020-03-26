@@ -6,8 +6,6 @@ var title = function (title) {
 var gender = false;
 console.log(gender == true ? '男性' : '女性');
 
-
-
 //false, 0, “”空字串, NaN, null, undefined
 console.log(Boolean(false));
 console.log(Boolean(0));

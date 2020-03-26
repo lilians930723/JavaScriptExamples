@@ -16,9 +16,9 @@ function Add(x, y) {
 
 console.log(Add(3, 5));
 
-//Ex - 
-/* var z = Add('3' + 5)
-console.log(z); */
+//Ex - Add方法計算兩個數字相加，但參數卻傳入非number型別
+var z = Add('3' + 5)
+console.log(z);
 
-//Ex - 請參考另一個Statement/Throw_typeof_NaN.js
+//Ex - 請參考另一個DataType/DataType_typeof_NaN.js
 
