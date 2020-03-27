@@ -1,0 +1,44 @@
+{
+    "taipei": [
+        {
+            "id": "taipei01",
+            "district": "中正區"
+        },
+        {
+            "id": "taipei02",
+            "district": "萬華區"
+        },
+        {
+            "id": "taipei03",
+            "district": "信義區"
+        }
+    ],
+    "taoyuan": [
+        {
+            "id": "taoyuan01",
+            "district": "桃園市"
+        },
+        {
+            "id": "taoyuan02",
+            "district": "八德市"
+        },
+        {
+            "id": "taoyuan03",
+            "district": "中壢市"
+        }
+    ],
+    "taichung": [
+        {
+            "id": "taichung01",
+            "district": "台中市"
+        },
+        {
+            "id": "taichung02",
+            "district": "大里市"
+        },
+        {
+            "id": "taichung03",
+            "district": "清水市"
+        }
+    ]
+}

@@ -11,11 +11,6 @@ console.log(typeof s1);
 console.log(typeof s2);
 console.log(typeof s3);
 
-var x=1;
-let y=1;
-const z=1;
 
-console.log(typeof x);
-console.log(typeof y);
-console.log(typeof z);
-
+const pi = 3.14;
+var x = pi;

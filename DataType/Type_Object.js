@@ -12,7 +12,7 @@ var person = {
   name: "Kevin",
   email: "kevin@gmail.com",
   phone: "0922-155342"
-}
+};
 
 //Ex2 - 存取物件屬性
 title('存取物件屬性');
@@ -44,3 +44,4 @@ for (const prop in employee) {
   console.log(`employee.${prop}:${employee[prop]}`);
 }
 
+console.log(typeof NaN);

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--     <select id="citiesExample" name="cities">
+        <option value="taipei">台北</option>
+        <option value="taoyuan">桃園</option>
+        <option value="taichung">台中</option>
+    </select> -->
+
+    <select id='cities' name='cities'>
+    </select>
+
+    <select id='district' name='district'>
+    </select>
+
+    <input type="submit" value="提交資料" onclick="submitData()">
+    <div id='msg'></div>
+    
+    <script>
+        //Cities Array
+        var allCities = [
+            { id: 'taipei', name: '台北' },
+            { id: 'taoyuan', name: '桃園' },
+            { id: 'taichung', name: '台中' }
+        ];
+
+        var districtObject = {
+            taipei: [
+                { id: 'taipei01', district: '中正區' },
+                { id: 'taipei02', district: '萬華區' },
+                { id: 'taipei03', district: '信義區' }],
+            taoyuan: [
+                { id: 'taoyuan01', district: '桃園市' },
+                { id: 'taoyuan02', district: '八德市' },
+                { id: 'taoyuan03', district: '中壢市' }],
+            taichung: [
+                { id: 'taichung01', district: '台中市' },
+                { id: 'taichung02', district: '大里市' },
+                { id: 'taichung03', district: '清水市' }]
+        };
+
+        var districtArray = [
+            { name: 'taipei', district: [{ id: 'taipei01', district: '中正區' }, { id: 'taipei02', district: '萬華區' }, { id: 'taipei03', district: '信義區' }] },
+            { name: 'taoyuan', district: [{ id: 'taoyuan01', district: '桃園市' }, { id: 'taoyuan02', district: '八德市' }, { id: 'taoyuan03', district: '中壢市' }] },
+            { name: 'taichung', district: [{ id: 'taichung01', district: '台中市' }, { id: 'taichung02', district: '大里市' }, { id: 'taichung03', district: '清水市' }] }
+        ];
+
+        console.log(districtObject);
+        console.log(JSON.stringify(districtObject));
+
+        console.log(districtArray);
+        console.log(JSON.stringify(districtArray));
+
+        /* for (const prop in employee) {
+          console.log(`employee.${prop}:${employee[prop]}`);
+        } */
+
+        //取得select element元素
+        const citySelect = document.getElementById('cities');
+        const districtSelect = document.getElementById('district');
+        const submit = document.querySelector("input[type=submit]");
+        const divMsg = document.getElementById('msg');
+
+        console.log(submit);
+
+        window.onload = createSelect;
+
+        //動態建立City <select>
+        function createSelect() {
+            //1. <select> 1
+            for (let i = 0; i < allCities.length; i++) {
+                //create select's option
+                let option1 = document.createElement('option');
+                option1.value = allCities[i].id;
+                option1.text = allCities[i].name;
+                //add the option to select
+                citySelect.add(option1, null);
+            }
+
+            let option2 = document.createElement('option');
+            option2.value = '';
+            option2.text = '---請選擇縣市---';
+            // option2.selected=true;
+            option2.setAttribute('selected', '');
+
+            citySelect.add(option2, 0);
+
+            let opt0 = document.createElement('option');
+            opt0.value = '';
+            opt0.text = '---請選擇行政區---';
+            districtSelect.add(opt0, null);
+
+            alert('<select> onchange event!');
+        }
+
+        citySelect.onchange = citySelectChange;
+
+        //select1 onchange,根據所選縣市，動態建立對映的行政區域選項<option>
+        function citySelectChange(event) {
+            //以根據所選縣市為條件，從allDistricts陣列過濾找出應的陣列元素, 裡面即為行政區資料
+            console.log(citySelect.selectedOptions[0]);
+            selectedCityValue = citySelect.selectedOptions[0].value;
+            selectedCityText = citySelect.selectedOptions[0].text;
+
+            //清除並重新建立District <select>
+            districtSelect.innerHTML='';
+            let opt0 = document.createElement('option');
+            opt0.value = '';
+            opt0.text = '---請選擇行政區---';
+            districtSelect.add(opt0, null);
+
+            
+            if(selectedCityValue==''){ return };
+
+            //從Object[CityName]取得值，其值為陣列
+            let districtArray1 = districtObject[selectedCityValue];
+            districtArray1.forEach((item)=>{
+                let opt = document.createElement('option');
+                opt.value=item.id;
+                opt.text=item.district;
+                districtSelect.add(opt);
+            });
+
+
+            //動態建立option節點 
+            let opt1 = document.createElement('option');
+            opt1.value = 'taipei01';
+            opt1.text = 'taipei01';
+            let opt2 = document.createElement('option');
+            opt2.value = 'taipei02';
+            opt2.text = 'taipei02';
+            let opt3 = document.createElement('option');
+            opt3.value = 'taipei03';
+            opt3.text = 'taipei03';
+
+/*          districtSelect.add(opt1, null);
+            districtSelect.add(opt2, null);
+            districtSelect.add(opt3, null); */
+        }
+
+        districtSelect.addEventListener('change', function(){
+            //顯示選擇City-District
+            divMsg.textContent=citySelect.selectedOptions[0].text + ', ' + districtSelect.selectedOptions[0].text;
+
+        });
+
+        function submitData() {
+            // alert('你提交了資料');
+
+            //建立FormData
+            let formData = new FormData();
+            formData.append('city', citySelect.selectedOptions[0].value);
+            formData.append('district', districtSelect.selectedOptions[0].text);
+
+            //傳送FormData資料到指定的Server，將資料交由Server處理
+            let request = new XMLHttpRequest();
+            request.open("POST", "https://www.codemagic.com.tw");
+            request.send(formData);
+        }
+    </script>
+</body>
+
+</html>
