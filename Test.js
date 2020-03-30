@@ -19,3 +19,10 @@ for (let i = 0; i < 65563; i++) {
 }
 
 console.log(ascii);
+
+let array1 = [100 , 200 , 300, 400, 500]
+let sum = array1.map(x => x *1.05)
+    .reduce((total, current) => total + current);
+
+console.log(sum);
+

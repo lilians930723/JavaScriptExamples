@@ -20,3 +20,10 @@ array.forEach((item) => { console.log(item) });
 //Ex5 - 計算5%稅率
 var Tax = (amount, taxPercent) => { return amount * (1 + (taxPercent / 100)) };
 console.log(Tax(100, 5));
+
+//Ex
+let array1 = [100 , 200 , 300, 400, 500]
+let sum = array1.map(x => x *1.05)
+    .reduce((total, current) => total + current);
+
+console.log(sum);
