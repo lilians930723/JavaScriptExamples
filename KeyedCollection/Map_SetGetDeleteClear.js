@@ -9,6 +9,8 @@ map.set("taiwan", taiwanArray);
 map.set("china", chinaArray);
 map.set("america", americaArray);
 
+console.log(map);
+
 //console.log('成員數目:' + map.length);    //length為0
 console.log('成員數目:' + map.size);      //用size屬性讀取成員數目
 

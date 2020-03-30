@@ -8,7 +8,6 @@ console.log(objName);
 
 var p = Promise.resolve(person);
 
-
 p.then(function (value) {
     for (var prop in value) {
         console.log(prop + " : " + value[prop]);

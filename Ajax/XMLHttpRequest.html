@@ -19,9 +19,9 @@
             formData.append('district', '中正區');
 
             //傳送FormData資料到指定的Server，將資料交由Server處理
-            let request = new XMLHttpRequest();
-            request.open("POST", "https://www.codemagic.com.tw");
-            request.send(formData);
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://www.codemagic.com.tw");
+            xhr.send(formData);
         }
     </script>
 </body>

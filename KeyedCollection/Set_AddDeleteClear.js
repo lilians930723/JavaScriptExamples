@@ -12,13 +12,12 @@ Set.prototype.log=function(){
 let set = new Set();
 set.add(1);
 set.add(3);
+set.add(5);
+set.add(7);
 console.log(set);
-console.log(set.size)
-// console.log(typeof set);
+console.log('size : ' + set.size)
+console.log('type : ' + typeof set);
 
-set.add(3);
-// set.add(5);
-display(set);
 
 set.add(Math.sqrt(25));
 display(set);

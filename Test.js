@@ -1,16 +1,21 @@
-var s1 = 'Mary';
-var s2 = String('Mary');
-var s3 = new String('Mary');
+var name = 'Jane';  //單引號single quote
+var name = "Jane";  //雙引號dobule quotes
 
-console.log(s1);
-console.log(s2);
-console.log(s3);
+a = b = 3, c = 4; // Returns 4 in console
+console.log(a); // 3 (left-most)
 
-console.log('.'.repeat(60));
-console.log(typeof s1);
-console.log(typeof s2);
-console.log(typeof s3);
+x = (y = 5, z = 6); // Returns 6 in console
+console.log(x); // 6 (right-most)
 
+console.log(String.fromCharCode(65));
 
-const pi = 3.14;
-var x = pi;
+var ascii='';
+for (let i = 0; i < 65563; i++) {
+    // ascii+=String.fromCharCode(i);
+    // console.log(String.fromCharCode(i));
+    if(String.fromCharCode(i)=='奚'){
+        console.log(i + ":" + String.fromCharCode(i));
+    }
+}
+
+console.log(ascii);
