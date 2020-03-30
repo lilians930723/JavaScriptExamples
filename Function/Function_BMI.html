@@ -8,7 +8,7 @@
     <label for="height">身高:</label>
     <input type="text" id="height" name="height">
     <br/>
-    <label for="height">體重:</label>
+    <label for="weight">體重:</label>
     <input type="text" id="weight" name="weight">
     <br/>
     <button onclick="calcBMI()">計算BMI</button>
@@ -20,7 +20,10 @@
         function calcBMI() {
             let height = document.getElementById("height").value;
             let weight = document.getElementById("weight").value;
-            msg.innerHTML = "BMI = " + weight / ((height / 100) ** 2);
+            // msg.innerHTML = "BMI = " + weight / ((height / 100) ** 2);
+
+            let bmi = (height, weight)=>{return weight / ((height/100)**2)}
+            msg.innerHTML=bmi(175, 75);
         }
     </script>
 </body>
