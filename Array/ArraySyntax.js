@@ -70,8 +70,10 @@ Person.forEach(function(item, index, array){
 
 //Ex7 - 只傳入一個item參數
 title('forEach(), 只傳入一個item參數');
-Person.forEach(function(item){
-    console.log(item, typeof item)
+var Person = ['John', 35, 'john@gmail.com'];
+
+Person.forEach(function(item, index, array){
+    console.log(index, item, typeof item)
 })
 
 //Ex8 - 用typeof顯示型別

@@ -6,7 +6,7 @@ var islandArray = ['小島', 41, 3, 59];
 
 var Global = [taiwanArray, chinaArray, americaArray, islandArray];
 
-console.log(Global);
+// console.log(Global);
 
 //Ex1 - 加入key-value pairs資料到Map物件
 var map = new Map();    //初始化Map物件
@@ -21,9 +21,10 @@ Global.forEach((item) => {
     globalMap.set(item[0], item);
 });
 
-console.log(globalMap);
+// console.log(globalMap);
 
 //Ex3 - 排序 by key
+console.log([...map.entries()]);
 console.log([...map.entries()].sort());
 
 

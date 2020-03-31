@@ -24,25 +24,26 @@
     <button>Click Me!</button>
 
     <script type="module">
-        import { $g } from '../modules/helpers.js';
+        import { $g as $got } from '../modules/helpers.js';
         
         //Ex
-        var h1 = $g('h1');
+        var h1 = $got('h1');
         console.log(h1);
         console.log(typeof h1);
 
         //Ex
-        var btn = $g('button');
+        var btn = $got('button');
         console.log(btn);
         console.log(btn instanceof HTMLButtonElement);
         console.log(btn.innerHTML);
 
         //Ex
-        console.log($g('p')); //NodeList
+        var p = $got('p')
+        console.log(p); //NodeList
         console.log(typeof p);
 
         //Ex
-        var body = $g('body');
+        var body = $got('body');
         console.log(body);
         console.log(typeof body);
         console.log(body.children); //HTMLCollection
